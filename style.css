@@ -339,3 +339,31 @@ marquee {
 .footer a:hover {
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+      .navbar img {
+        max-width: 150px;
+      }
+      .search {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .text {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1rem;
+      }
+      .navbar {
+        flex-direction: column;
+      }
+      .navbar select, .navbar button {
+        width: 100%;
+      }
+    }
+
