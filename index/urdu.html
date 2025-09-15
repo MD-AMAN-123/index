@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایسا - بہترین بننے کے لیے بہترین چیزیں چنیں</title>
+    <link rel="icon" type="image/png" href="C:\Users\DELL\Downloads\Untitled (2).jpg">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="sign in" href="pages/signin.html">
+</head>
+<body>
+    <main>    
+    <div class="box">
+        <div class="navbar">
+             <img src="essa 1 (1).png" height="400px" width="450px" alt="لوگو">
+            <button>
+                <select name="languages" id="lang-select">
+                    <option value="en">انگریزی</option>
+                    <option value="hindi.html">ہندی</option>
+                    <option value="urdu.html" selected>اردو</option> 
+                    <option value="arabic.html">عربی</option>
+                </select>
+            </button>
+
+            <a href="sign in.html">
+                <button>سائن ان کریں</button>
+            </a>
+        </div>
+
+        <h1><b>
+            ایسا کلون کے ساتھ بہترین مصنوعات سے لطف اٹھائیں
+        </b></h1>
+
+        <div class="text">
+            <input type="text" placeholder="مصنوعات یہاں تلاش کریں" class="search">
+            <button class="search-button">تلاش کریں &gt;&gt;</button>
+        </div>
+    </div>
+</main>
+
+<div class="separator"></div>
+
+<div class="hero">
+    <span>ہماری خریداری سے دلچسپ انعامات جیتیں</span>
+    <span><img src="gift.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero1">
+    <span>اپنی پسندیدہ مصنوعات پر بہترین ڈیلز حاصل کریں</span>
+    <span><img src="trackpaint1.webp" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero2">
+    <span>ابھی خریداری کریں اور خصوصی رعایت حاصل کریں</span>
+    <span><img src="trackpaint2.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero3">
+    <span>فیشن میں تازہ ترین رجحانات دریافت کریں</span>
+    <span><img src="fashion.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const searchBtn = document.querySelector(".search-button");
+    const searchInput = document.querySelector(".search");
+
+    searchBtn.addEventListener("click", () => {
+        const query = searchInput.value.trim();
+        if (query === "") {
+            alert("براہ کرم کسی مصنوعہ کا نام درج کریں❓");
+        } else {
+            alert(`"${query}" کے لیے تلاش کی جا رہی ہے...`);
+        }
+    });
+});
+
+document.getElementById("lang-select").addEventListener("change", function () {
+    const selected = this.value;
+    if (selected.endsWith(".html")) {
+        window.location.href = selected;
+    }
+});
+</script>
+</body>
+</html>

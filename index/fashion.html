@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>best fashion</title>
+  <link rel="icon" type="image/png" href="C:\Users\DELL\Downloads\Untitled (2).jpg">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, pink, cyan);
+      margin: 0;
+      padding: 0;
+    }
+    .banner {
+      background-color: aqua;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 20px;
+      margin: 20px;
+      border: 5px solid rgba(30, 143, 255, 0.687);
+    }
+    .banner img {
+      width: 120px;
+      height: auto;
+      border-radius: 20px;
+      margin-right: 20px;
+      border: 4px solid rgb(248, 30, 255);
+    }
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 180px;
+      text-align: center;
+      padding: 10px;
+    }
+    .product img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product h4 {
+      margin: 10px 0 5px;
+    }
+    .product p {
+      color: green;
+      font-weight: bold;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="banner">
+  <h2>Discover the latest trends in fashion</h2>
+  <img src="fashion.jpg" alt="Gift Promo"> <!-- replace with your image path -->
+  <a href="Essa's-clone.html"><img src="home.png" alt="home"></a>
+</div>
+
+<div class="product-section">
+  <div class="product">
+    <img src="casual1.jpeg" alt="casual">
+    <h4>casual shirts</h4>
+    <p>499/-</p>
+  </div>
+  <div class="product">
+    <img src="casual-p.jpg" alt=" casual">
+    <h4>casual paints</h4>
+    <p>599/-</p>
+  </div>
+  <div class="product">
+    <img src="hoddie.webp" alt="jeans">
+    <h4>hoddies</h4>
+    <p>699/-</p>
+  </div>
+  <div class="product">
+    <img src="d-jeans.jpg" alt=" jeans">
+    <h4>Denim jeans</h4>
+    <p>749/-</p>
+  </div>
+</div>
+<script>
+  // Example JS: You could add animation, text changes, or fetch data here
+  const bannerText = document.getElementById('bannerText');
+
+  // Optional dynamic change (example)
+  setTimeout(() => {
+    bannerText.innerText = "🎁 Limited Time Offer – Don't Miss Out!";
+  }, 5000);
+</script>
+</body>
+</html>

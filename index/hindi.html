@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essa - सबसे बेहतरीन बनने के लिए चाहिए सबसे बेहतरीन</title>
+    <link rel="icon" type="image/png" href="C:\Users\DELL\Downloads\Untitled (2).jpg">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel=" Essa's-clone.html" href="essa.html/Essa's-clone.html">
+    <link rel="sign in" href="pages/signin.html">
+</head>
+<body>
+    <main>    
+    <div class="box">
+        <div class="navbar">
+            <img src="essa 1 (1).png" height="400px" width="450px" alt="Logo">
+            <button>
+                <select name="languages" id="lang-select">
+                    <option value="en">अंग्रेज़ी</option>
+                    <option value="urdu.html">उर्दू</option> 
+                    <option value="arabic.html">अरबी</option>
+                    <option value="hindi.html" selected>हिन्दी</option>
+                </select>
+            </button>
+
+            <a href="sign in.html">
+                <button>साइन इन करें</button>
+            </a>
+        </div>
+
+        <h1><b>
+            Essa के क्लोन के साथ बेहतरीन उत्पादों का आनंद लें
+        </b></h1>
+
+        <div class="text">
+            <input type="text" placeholder="यहां उत्पाद खोजें" class="search">
+            <button class="search-button">खोजें &gt;&gt;</button>
+        </div>
+    </div>
+</main>
+
+<div class="separator"></div>
+
+<div class="hero">
+    <span>हमारे साथ खरीदारी करके जीतें रोमांचक उपहार</span>
+    <span><img src="gift.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero1">
+    <span>अपने पसंदीदा उत्पादों पर बेहतरीन डील पाएं</span>
+    <span><img src="trackpaint1.webp" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero2">
+    <span>अभी खरीदारी करें और विशेष छूट का लाभ उठाएं</span>
+    <span><img src="trackpaint2.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<div class="hero3">
+    <span>फैशन की नवीनतम ट्रेंड्स की खोज करें</span>
+    <span><img src="fashion.jpg" height="180px" width="100px" alt=""></span>
+</div>
+
+<script>
+    // JavaScript for search button
+    document.addEventListener("DOMContentLoaded", () => {
+        const searchBtn = document.querySelector(".search-button");
+        const searchInput = document.querySelector(".search");
+
+        searchBtn.addEventListener("click", () => {
+            const query = searchInput.value.trim();
+            if (query === "") {
+                alert("कृपया एक उत्पाद का नाम दर्ज करें❓");
+            } else {
+                alert(`"${query}" के लिए खोज रहे हैं...`);
+                // आप यहां रीडायरेक्ट या फ़िल्टर कर सकते हैं
+            }
+        });
+    });
+
+    document.getElementById("lang-select").addEventListener("change", function () {
+        const selected = this.value;
+        if (selected.endsWith(".html")) {
+            window.location.href = selected;
+        }
+    });
+</script>
+</body>
+</html>
