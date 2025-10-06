@@ -1,4 +1,4 @@
-*{
+ *{
     padding: 0;
     margin: 0;
 }
@@ -40,6 +40,35 @@ body{
  .navbar > img{
     margin-right:100px ;
  }
+ .essa{
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+ }
+ @-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+
   button{
     padding: 10px 20px;
     border-radius: 10px;
@@ -94,14 +123,14 @@ h1{
 }
  .text > input{
     border-radius: 5px;
-    width: 200px;
+    width: 230px;
     height: 20px;
      justify-content: center; 
     align-items: center;
      align-content:  center; 
     text-align: center;
     color: white;
-    padding: 10px;
+    padding: 15px;
     background-color: black; 
     opacity: 0.44;
     border: 1px solid rgb(68, 151, 234);
@@ -149,16 +178,50 @@ h1{
     margin: 10px;
     margin-left: 500px; 
     /* animation-play-state:  running; */
-    animation-direction: normal;
+	-webkit-animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+	        animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s both;
+    
+    /* animation-direction: normal;
     animation-duration: 3s;
     animation-fill-mode: forwards;
-    animation-name: slide1;
-    border-radius: 20px;
+    /* animation-name: slide1; */
+    border-radius: 20px; 
     border: 2px solid  rgb(160, 18, 255);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
-     
-
 }
+@-webkit-keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
 .hero :nth-child(2){ 
     width: 100px;
     height: 180px;
@@ -185,14 +248,46 @@ h1{
     background-color:  rgb(178, 78, 245);
     margin: 250px;
     margin-left:10px;
-    animation-fill-mode:forwards;
-    animation-direction: normal;
-    animation-duration: 3s;
-    animation-name: slide2;
+     -webkit-animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+	        animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+    
     border-radius: 20px;
     border: 2px solid   rgb(160, 18, 255);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    @-webkit-keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
 }.hero1 :nth-child(2){ 
     width: 100px;
     height: 180px;
@@ -219,14 +314,45 @@ h1{
     background-color:  rgb(178, 78, 245);
     margin: 490px;
     margin-left: 500px;
-    animation-fill-mode: forwards;
-    animation-direction: normal;
-    animation-duration: 3s;
-    animation-name: slide3;
+     -webkit-animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
+	        animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2.5s both;
     border-radius: 20px;
     border: 2px solid  rgb(160, 18, 255);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+@-webkit-keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
 }
 .hero2 :nth-child(2) {
     width: 100px;
@@ -252,14 +378,45 @@ h1{
     background-color:  rgb(178, 78, 245);
     margin: 730px;
     margin-left: 10px;
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-duration: 3s;
-    animation-name: slide4;
+     -webkit-animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+	        animation: slide-in-elliptic-top-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
     border-radius: 20px;
     border: 2px solid  rgb(160, 18, 255);
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+@-webkit-keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
 }
 .hero3 :nth-child(2) {
     width: 100px;
@@ -339,31 +496,3 @@ marquee {
 .footer a:hover {
   text-decoration: underline;
 }
-@media (max-width: 768px) {
-      h1 {
-        font-size: 1.2rem;
-      }
-      .navbar img {
-        max-width: 150px;
-      }
-      .search {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .text {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1rem;
-      }
-      .navbar {
-        flex-direction: column;
-      }
-      .navbar select, .navbar button {
-        width: 100%;
-      }
-    }
-
