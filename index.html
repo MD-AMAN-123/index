@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,14 +11,97 @@
     <link rel=" best deals" href="bestdeals.html">
     <link rel=" discounts" href="discounts.html">
     <link rel=" fashion" href="fashion.html">
+    <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin:0; padding:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+    }
     
-     
+
+    /* Floating Chat Button */
+    .chat-bubble{
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      width:64px; height:64px;
+      background: linear-gradient(135deg,var(--accent), #4f46e5);
+      border-radius: 16px;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      cursor:pointer;
+      transition: transform .14s;
+    }
+    .chat-bubble:active { transform: scale(.98); }
+    .chat-bubble svg { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); }
+
+    /* Chat Panel */
+    .chat-panel{
+      position: fixed;
+      right: 28px;
+      bottom: 100px;
+      width: 420px;
+      max-height: 80vh;
+      background: linear-gradient(180deg, rgba(12,22,36,0.95), rgba(6,9,18,0.94));
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(2,6,23,0.7);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .chat-header{
+      display:flex; gap:12px; align-items:center; padding:14px;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .agent-avatar{ width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,#06b6d4,#4f46e5); display:flex; align-items:center; justify-content:center; font-weight:700; color:#04182a; }
+    .header-title{ font-weight:600; font-size:15px; }
+    .header-sub{ color:var(--muted); font-size:12px; margin-top:2px; }
+
+    .chat-body{ padding:12px; overflow:auto; flex:1; display:flex; flex-direction:column; gap:12px; }
+
+    .msg{ max-width:76%; padding:10px 12px; border-radius:10px; line-height:1.35; }
+    .msg.agent{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); align-self:flex-start; color:#e8f3ff; }
+    .msg.user{ background: linear-gradient(180deg, rgba(6,182,212,0.12), rgba(79,70,229,0.06)); align-self:flex-end; color: #e6eef6; }
+
+    .suggestions{ display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; }
+    .chip{ background:var(--glass); padding:6px 10px; border-radius:999px; color:var(--muted); font-size:13px; cursor:pointer; border:1px solid rgba(255,255,255,0.02); }
+
+    /* Product cards inside chat */
+    .product-list{ display:flex; gap:10px; overflow:auto; padding-bottom:6px; margin-top:6px; }
+    .product{ min-width:180px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,0.02); }
+    .product img{ width:100%; height:110px; object-fit:cover; border-radius:8px; }
+    .product h4{ font-size:14px; margin-top:8px; }
+    .product p{ color:var(--muted); font-size:13px; margin-top:4px; }
+    .product .price{ font-weight:700; margin-top:6px; }
+
+    /* Input area */
+    .chat-input{ padding:12px; border-top:1px solid rgba(255,255,255,0.02); display:flex; gap:8px; align-items:center; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent); }
+    .chat-input input{ flex:1; padding:10px 12px; border-radius:10px; background: rgba(255,255,255,0.02); color: #e6eef6; border:1px solid rgba(255,255,255,0.02); outline:none; }
+    .btn1{ padding:10px 12px; border-radius:10px; background:var(--accent); color:#021224; font-weight:700; border:none; cursor:pointer; }
+    .mini{ padding:8px 10px; font-size:13px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--muted); }
+
+    /* Cart drawer (inline) */
+    .cart-drawer{ position: fixed; right: 28px; bottom: calc(100px + 460px); width: 360px; background:linear-gradient(180deg,#061226,#061226); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.02); box-shadow:0 20px 50px rgba(2,6,23,0.6); color:#e6eef6; display:none; }
+    .cart-item{ display:flex; gap:10px; align-items:center; margin-bottom:10px; }
+    .cart-item img{ width:56px; height:56px; object-fit:cover; border-radius:8px; }
+    .cart-summary{ font-weight:700; margin-top:8px; display:flex; justify-content:space-between; align-items:center; }
+
+    /* Small responsive */
+    /* @media (max-width:520px){
+      .chat-panel{ width: 94%; right: 3%; bottom: 100px; }
+      .cart-drawer{ width: 94%; right:3%; bottom: calc(100px + 420px); }
+    } */
+  </style>
+
 </head>
 <body>
-    <main>    
+    <main> 
     <div class="box">
         <div class="navbar">
-             <img src="essa 1 (1).png"  height="400px" width="450px"alt="Logo">
+             <img src="essa 1 (1).png" class="essa" height="400px" width="450px"alt="Logo">
             <button><select name="languages" id="lang-select">
                 <option value="en">English</option>
                 <option value="hindi.html" >hindi</option>
@@ -67,6 +150,7 @@
     <span><a href="fashion.html" ><img src="fashion.jpg" height="180px" width="100px" alt=""></a></span>
     
 </div>
+
 <div class="footer">
   <p>&copy; 2025 Essa's Clone. All rights reserved.</p>
   <p>Follow us on:
@@ -74,6 +158,60 @@
     <a href="https://www.twitter.com" target="_blank">Twitter</a> |
     <a href="https://www.instagram.com" target="_blank">Instagram</a>
   </p>
+  <!-- Floating chat toggle -->
+  <div class="chat-bubble" id="openChat" title="Open Sales Assistant">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#fff"/>
+    </svg>
+  </div>
+
+  <!-- Chat panel -->
+  <div class="chat-panel" id="chatPanel" style="display:none;">
+    <div class="chat-header">
+      <div class="agent-avatar">RA</div>
+      <div>
+        <div class="header-title">Retail Agent — Omni</div>
+        <div class="header-sub">Available on Web • WhatsApp • Messenger</div>
+      </div>
+      <div style="flex:1"></div>
+      <button class="mini" id="openCartBtn" title="Open Cart">Cart (0)</button>
+      <button class="mini" id="closeChat">Close</button>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+      <!-- messages go here -->
+      <div class="msg agent" id="welcomeMsg">
+        Hello 👋 I'm your Sales Assistant. Try: "shoes under 3000", "gift for mom", or "track order 1234".
+        <div class="suggestions">
+          <div class="chip" data-q="shoes under 3000">shoes under 3000</div>
+          <div class="chip" data-q="running shoes">running shoes</div>
+          <div class="chip" data-q="laptop backpack">laptop backpack</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input id="chatInput" placeholder="Type a message... (try: 'show me red shoes')" />
+      <button class="btn1" id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+      <div style="font-weight:700">Your Cart</div>
+      <button class="mini" id="closeCart">Close</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+      <div>Total</div>
+      <div id="cartTotal">₹0</div>
+    </div>
+    <div style="margin-top:10px; display:flex; gap:8px;">
+      <button class="btn1" id="checkoutBtn">Checkout</button>
+      <button class="mini" id="whatsappCheckout">Checkout via WhatsApp</button>
+    </div>
+  </div>   
 </div>
 
 
@@ -102,6 +240,297 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = selected;
     }
   });
+  
+/* -------------------------
+  Minimal demo "engine" code
+   - Replace simulateBackend with real API calls for production
+   - Comments show where to plug Dialogflow/Twilio/Stripe
+----------------------------*/
+
+const chatPanel = document.getElementById('chatPanel');
+const openChat = document.getElementById('openChat');
+const closeChat = document.getElementById('closeChat');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+const chatWelcome = document.getElementById('welcomeMsg');
+const openCartBtn = document.getElementById('openCartBtn');
+const cartDrawer = document.getElementById('cartDrawer');
+const closeCart = document.getElementById('closeCart');
+const cartItemsElm = document.getElementById('cartItems');
+const cartTotalElm = document.getElementById('cartTotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const whatsappCheckout = document.getElementById('whatsappCheckout');
+
+let cart = [];
+let cartCount = 0;
+
+/* Sample product catalog (would come from your e-commerce DB) */
+const PRODUCTS = [
+  { id:'p1', title:'Stride Running Shoes', price:2499, category:'shoes', img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3' },
+  { id:'p2', title:'Everyday Sneakers', price:1999, category:'shoes', img:'https://images.unsplash.com/photo-1528701800489-4760e3b4eb76?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3' },
+  { id:'p3', title:'Laptop Backpack Pro', price:2999, category:'bags', img:'https://images.unsplash.com/photo-1555529771-5e6c1b2f8f6f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3' },
+  { id:'p4', title:'Trail Running Shoes', price:3199, category:'shoes', img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3' },
+  { id:'p5', title:'Classic Leather Belt', price:799, category:'accessories', img:'https://images.unsplash.com/photo-1591012911207-3c9a2f7b3b3a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3' }
+];
+
+/* Utility: append message */
+function appendMessage(kind, htmlContent){
+  const div = document.createElement('div');
+  div.className = 'msg ' + (kind === 'agent' ? 'agent' : 'user');
+  div.innerHTML = htmlContent;
+  chatBody.appendChild(div);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+/* Basic intent detection (demo). For production, send to Dialogflow/Rasa/LLM. */
+function parseIntent(text){
+  text = text.toLowerCase();
+  // track order
+  if (/track|where.*order|order\s+#?\d+/i.test(text)) {
+    const id = (text.match(/\d{3,}/) || ['1234'])[0];
+    return { intent:'track_order', orderId:id };
+  }
+  // checkout intent
+  if (/checkout|buy|pay|place order|purchase/i.test(text)) {
+    return { intent:'checkout' };
+  }
+  // product search with price
+  let priceMatch = text.match(/under\s*₹?(\d{3,})|below\s*₹?(\d{3,})|under\s*(\d{3,})/i);
+  if (/shoes|sneaker|running|bag|backpack|belt|accessories/.test(text)){
+    return { intent:'search', q:text, maxPrice: priceMatch ? (priceMatch[1]||priceMatch[2]||priceMatch[3]) : null };
+  }
+  // small talk or default
+  if (/hi|hello|hey|thanks|thank you/i.test(text)) return { intent:'small_talk' };
+
+  // fallback: treat as search
+  return { intent:'search', q:text, maxPrice: priceMatch ? (priceMatch[1]||priceMatch[2]||priceMatch[3]) : null };
+}
+
+/* Simple recommender: if user looked at a category, recommend other popular items from same category */
+function recommendBasedOn(products){
+  const cat = products.length ? products[0].category : null;
+  if (!cat) return [];
+  return PRODUCTS.filter(p => p.category === cat && p.id !== products[0].id).slice(0,3);
+}
+
+/* Simulated backend – replace this with actual API calls */
+async function simulateBackend(userText){
+  // parse
+  const intent = parseIntent(userText);
+  // small talk
+  if (intent.intent === 'small_talk'){
+    return { messages: ["Hi! 👋 I can help you find products, track orders, or checkout. Try: 'shoes under 3000'"] };
+  }
+  if (intent.intent === 'track_order'){
+    // simulate order lookup
+    return { messages: [`Order #${intent.orderId} is in transit — estimated delivery: 2 days.`] };
+  }
+  if (intent.intent === 'checkout'){
+    // simulate checkout summary
+    if (cart.length === 0) return { messages: ["Your cart is empty — add something first. Try: 'show me shoes under 3000'"] };
+    return { messages: ["Ready to checkout — sending payment link..."], checkoutLink: "https://example.com/payment?amount=" + cart.reduce((s,i)=>s+i.price,0) };
+  }
+  if (intent.intent === 'search'){
+    // simple search over PRODUCTS
+    const q = intent.q || '';
+    const max = intent.maxPrice ? Number(intent.maxPrice) : Infinity;
+    const matches = PRODUCTS.filter(p => (p.title.toLowerCase().includes(q) || p.category.includes(q)) && p.price <= max);
+    // if no direct matches, fuzzy by keywords
+    const fallback = matches.length === 0 ? PRODUCTS.filter(p => q.split(' ').some(w=> p.title.toLowerCase().includes(w))) : matches;
+    return { messages: ["Here are some items I found:"], products: fallback.slice(0,6) };
+  }
+  return { messages: ["Sorry, I didn't get that. Try 'show me shoes' or 'track order 1234'"] };
+}
+
+/* Main send function */
+async function handleSend(text){
+  if (!text || !text.trim()) return;
+  appendMessage('user', escapeHtml(text));
+  chatInput.value = '';
+  // show typing...
+  appendMessage('agent', '<em>typing…</em>');
+  // Call simulated backend (or replace with real fetch)
+  const result = await simulateBackend(text);
+  // remove the typing bubble (last agent msg)
+  const msgs = chatBody.querySelectorAll('.msg.agent');
+  if (msgs.length) msgs[msgs.length-1].remove();
+
+  // show messages
+  if (result.messages){
+    for (const m of result.messages){
+      appendMessage('agent', escapeHtml(m));
+    }
+  }
+  // show product cards if any
+  if (result.products && result.products.length){
+    const wrapper = document.createElement('div');
+    wrapper.className = 'msg agent';
+    const prodHtml = [];
+    prodHtml.push('<div style="font-weight:700; margin-bottom:6px;">Products</div>');
+    prodHtml.push('<div class="product-list">');
+    for (const p of result.products){
+      prodHtml.push(`
+        <div class="product" data-id="${p.id}">
+          <img src="${p.img}" alt="${escapeHtml(p.title)}" />
+          <h4>${escapeHtml(p.title)}</h4>
+          <p class="price">₹${p.price.toLocaleString()}</p>
+          <button class="mini add-cart" data-id="${p.id}" style="margin-top:8px;">Add to cart</button>
+        </div>
+      `);
+    }
+    prodHtml.push('</div>');
+    wrapper.innerHTML = prodHtml.join('');
+    chatBody.appendChild(wrapper);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // add event listeners for add-to-cart buttons
+    wrapper.querySelectorAll('.add-cart').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
+        const id = btn.dataset.id;
+        const prod = PRODUCTS.find(x=>x.id===id);
+        addToCart(prod);
+      });
+    });
+    // recommendations
+    const rec = recommendBasedOn(result.products);
+    if (rec.length){
+      const recDiv = document.createElement('div');
+      recDiv.className = 'msg agent';
+      recDiv.innerHTML = '<div style="font-weight:700; margin-bottom:6px;">You might also like</div>' +
+        '<div class="product-list">' + rec.map(p=>`
+          <div class="product" data-id="${p.id}">
+            <img src="${p.img}" /><h4>${escapeHtml(p.title)}</h4><p class="price">₹${p.price.toLocaleString()}</p>
+            <button class="mini add-cart" data-id="${p.id}" style="margin-top:8px;">Add</button>
+          </div>
+        `).join('') + '</div>';
+      chatBody.appendChild(recDiv);
+      // add cart handlers
+      recDiv.querySelectorAll('.add-cart').forEach(btn=>{
+        btn.addEventListener('click', ()=> addToCart(PRODUCTS.find(x=>x.id===btn.dataset.id)));
+      });
+    }
+  }
+
+  // if there is checkout link returned, show quick action
+  if (result.checkoutLink){
+    appendMessage('agent', `Open payment link: <a href="${result.checkoutLink}" target="_blank" style="color:var(--accent); text-decoration:underline;">Pay Now</a>`);
+  }
+}
+
+/* Add to cart */
+function addToCart(prod){
+  cart.push(prod);
+  cartCount = cart.length;
+  openCartBtn.innerText = `Cart (${cartCount})`;
+  showCart();
+  // quick toast
+  appendMessage('agent', `${escapeHtml(prod.title)} added to cart. Total items: ${cartCount}.`);
+}
+
+/* show cart drawer */
+function showCart(){
+  cartDrawer.style.display = 'block';
+  renderCart();
+}
+
+/* render cart */
+function renderCart(){
+  cartItemsElm.innerHTML = '';
+  let total = 0;
+  for (const p of cart){
+    total += p.price;
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+    item.innerHTML = `<img src="${p.img}" /><div style="flex:1"><div style="font-weight:700">${escapeHtml(p.title)}</div><div style="color:var(--muted)">₹${p.price.toLocaleString()}</div></div><button class="mini remove" data-id="${p.id}">Remove</button>`;
+    cartItemsElm.appendChild(item);
+  }
+  cartTotalElm.innerText = '₹' + total.toLocaleString();
+  // remove handlers
+  cartItemsElm.querySelectorAll('.remove').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.dataset.id;
+      const idx = cart.findIndex(x=>x.id===id);
+      if (idx>-1) cart.splice(idx,1);
+      cartCount = cart.length;
+      openCartBtn.innerText = `Cart (${cartCount})`;
+      renderCart();
+    });
+  });
+}
+
+/* Basic checkout flow (opens external payment page; replace with real Stripe/Razorpay link) */
+checkoutBtn.addEventListener('click', ()=>{
+  if (cart.length === 0){ alert('Cart empty'); return;}
+  const amount = cart.reduce((s,i)=>s+i.price,0);
+  // In production: create checkout session on server, return session URL, redirect
+  // Example: POST /api/create_checkout { cart } -> { url }
+  // For demo: open placeholder URL with query
+  const url = `https://example.com/payment?amount=${amount}&items=${cart.map(i=>i.id).join(',')}`;
+  window.open(url, '_blank');
+});
+
+/* WhatsApp checkout — sends a prefilled message with cart items to a business number */
+whatsappCheckout.addEventListener('click', ()=>{
+  if (cart.length === 0){ alert('Cart empty'); return;}
+  // Replace phone with your business WhatsApp number in international format (without +)
+  const businessNumber = '9059089036';
+  const text = encodeURIComponent(`Hi, I'd like to order: ${cart.map(c=>c.title + ' (₹' + c.price + ')').join('; ')}. Total: ₹${cart.reduce((s,i)=>s+i.price,0)}. My name:`);
+  const waUrl = `https://wa.me/${businessNumber}?text=${text}`;
+  window.open(waUrl, '_blank');
+});
+
+/* UI bindings */
+openChat.addEventListener('click', ()=> chatPanel.style.display = 'flex');
+closeChat.addEventListener('click', ()=> chatPanel.style.display = 'none');
+openCartBtn.addEventListener('click', ()=> cartDrawer.style.display = cartDrawer.style.display === 'block' ? 'none' : 'block');
+closeCart.addEventListener('click', ()=> cartDrawer.style.display = 'none');
+
+sendBtn.addEventListener('click', ()=> handleSend(chatInput.value));
+chatInput.addEventListener('keydown', (e)=> { if (e.key === 'Enter') handleSend(chatInput.value); });
+
+/* suggestion chips */
+document.addEventListener('click', (e)=>{
+  if (e.target.classList.contains('chip')){
+    handleSend(e.target.dataset.q);
+  }
+});
+
+/* Utility: escape html */
+function escapeHtml(s){
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ---------- Integration guide (quick notes) ----------
+ Where the demo uses simulateBackend(text), replace with real server endpoints:
+
+ 1) For dialog/NLU: POST user text to your backend
+    fetch('/api/message', {method:'POST', body: JSON.stringify({text})})
+      -> backend handles Dialogflow/Rasa or LLM and responds with { messages:[], products:[], action:..., checkoutLink:... }
+
+ 2) For WhatsApp messages (production omnichannel):
+    - Use Twilio API or Meta Graph API to send/receive WhatsApp messages.
+    - Incoming WhatsApp webhook -> your server -> process with same NLU -> respond via Twilio.
+
+ 3) For persistent context:
+    - Store sessionId / conversationHistory in DB (Redis/Mongo).
+    - When user moves channel (web -> WhatsApp), map userId to same sessionId.
+
+ 4) For payments:
+    - Create checkout session server-side (Stripe/Razorpay). Return session URL to client.
+    - Never assemble payment links purely client-side in production.
+
+ 5) Product catalog:
+    - Replace PRODUCTS array with API calls to your store (Shopify/WooCommerce/custom).
+
+ ----------------------------------------------------- */
+
+ // small helper: show welcome suggestions clickable
+ document.querySelectorAll('.chip').forEach(c=> c.addEventListener('click', ()=> handleSend(c.dataset.q)));
+
+
+ 
 </script>
 
 </body>
