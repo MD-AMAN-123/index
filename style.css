@@ -223,13 +223,14 @@ h1{
 }
 
 .hero :nth-child(2){ 
-    width: 100px;
-    height: 180px;
+     width: 121px;
+    height: 201px;
     border-radius: 10%; 
-    margin: 40px;
+    margin: 14px;
     /* padding: 50px; */
     position:  relative;
-    border: 10px solid rgba(15, 39, 251, 0.606);
+    border: 10px solid rgb(10 9 10 / 57%);
+    object-fit: cover;
     
 }
 .hero1{
@@ -289,14 +290,14 @@ h1{
 }
 
 }.hero1 :nth-child(2){ 
-    width: 100px;
-    height: 180px;
+      width: 121px;
+    height: 201px;
     border-radius: 10%; 
-    margin: 40px;
-    /* padding: 50px;  */
+    margin: 14px;
+    /* padding: 50px; */
     position:  relative;
-    border: 10px solid rgba(15, 39, 251, 0.606);
-    
+    border: 10px solid rgb(10 9 10 / 57%);
+    object-fit: cover;
 } 
 .hero2 {
     width:  60%;
@@ -355,12 +356,14 @@ h1{
 
 }
 .hero2 :nth-child(2) {
-    width: 100px;
-    height: 180px;
-    border-radius: 10%;
-    margin: 50px;
-    position: relative;
-    border: 10px solid rgba(15, 39, 251, 0.606);
+      width: 121px;
+    height: 201px;
+    border-radius: 10%; 
+    margin: 14px;
+    /* padding: 50px; */
+    position:  relative;
+    border: 10px solid rgb(10 9 10 / 57%);
+    object-fit: cover;
 }
 .hero3 {
     width:  60%;
@@ -419,12 +422,14 @@ h1{
 
 }
 .hero3 :nth-child(2) {
-    width: 100px;
-    height: 180px;
-    border-radius: 10%;
-    margin: 50px;
-    position: relative;
-    border: 10px solid rgba(15, 39, 251, 0.606);
+     width: 121px;
+    height: 201px;
+    border-radius: 10%; 
+    margin: 14px;
+    /* padding: 50px; */
+    position:  relative;
+    border: 10px solid rgb(10 9 10 / 57%);
+    object-fit: cover;
 }
 @keyframes slide1{
     from {
@@ -496,3 +501,4 @@ marquee {
 .footer a:hover {
   text-decoration: underline;
 }
+
