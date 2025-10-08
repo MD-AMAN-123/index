@@ -548,11 +548,162 @@ marquee {
       }
     }
 
-    @media (max-width: 480px) {
-      h1 { font-size: 1.3rem; }
-      .search-button { width: 100%; }
-      .chat-panel { width: 94%; right: 3%; }
-    }
+     /* 🌐 Mobile Responsive Design */
+@media (max-width: 768px) {
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Navbar */
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 10px;
+    gap: 8px;
+  }
+
+  .navbar img {
+    max-width: 130px;
+    height: auto;
+  }
+
+  .navbar select, .navbar button {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* Title & Search */
+  h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .text {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .search {
+    width: 90%;
+    max-width: 320px;
+    font-size: 1rem;
+  }
+
+  .search-button {
+    width: 90%;
+    max-width: 320px;
+    padding: 12px;
+  }
+
+  /* Hero Sections */
+  .hero, .hero1, .hero2, .hero3 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 95%;
+    margin: 15px auto;
+    padding: 10px;
+  }
+
+  .hero img, .hero1 img, .hero2 img, .hero3 img {
+    width: 80%;
+    max-width: 260px;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .hero p, .hero1 p, .hero2 p, .hero3 p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
+
+  /* Marquee */
+  marquee {
+    white-space: normal;
+    font-size: 0.9rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+
+  /* Chatbot Bubble */
+  .chat-bubble {
+    width: 55px;
+    height: 55px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  /* Chat Panel */
+  .chat-panel {
+    width: 92%;
+    right: 4%;
+    bottom: 80px;
+    max-height: 75vh;
+  }
+
+  /* Product Cards inside chat */
+  .chat-product {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .chat-product img {
+    width: 80%;
+    max-width: 200px;
+    height: auto;
+  }
+
+  /* Cart Drawer */
+  .cart-drawer {
+    width: 92%;
+    right: 4%;
+    bottom: calc(100px + 420px);
+  }
+
+  /* Buttons */
+  button, .btn, .cta {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  .search-button {
+    font-size: 0.9rem;
+  }
+  .hero img {
+    max-width: 220px;
+  }
+  .chat-panel {
+    width: 95%;
+    right: 2.5%;
+  }
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 
 
