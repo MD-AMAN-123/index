@@ -501,5 +501,58 @@ marquee {
 .footer a:hover {
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .text {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search {
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+        margin: 15px;
+      }
+
+      .hero, .hero1, .hero2, .hero3 {
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%;
+      }
+
+      .chat-panel {
+        width: 92%;
+        right: 4%;
+        bottom: 90px;
+      }
+
+      .cart-drawer {
+        width: 92%;
+        right: 4%;
+        bottom: calc(100px + 420px);
+      }
+
+      .chat-bubble {
+        width: 55px;
+        height: 55px;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.3rem; }
+      .search-button { width: 100%; }
+      .chat-panel { width: 94%; right: 3%; }
+    }
+
 
 
